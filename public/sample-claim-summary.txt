@@ -1,0 +1,10 @@
+Claim Summary
+
+This is a sample claim summary document for preview.
+
+Provider: Sample Provider Group
+Service Date: 2026-02-15
+Claim Amount: $1,500.00
+Status: Submitted
+
+For demo purposes only.

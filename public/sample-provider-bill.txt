@@ -1,0 +1,10 @@
+Provider Bill
+
+Itemized services:
+- Consultation: $200.00
+- Procedure: $1,200.00
+- Supplies: $100.00
+
+Total: $1,500.00
+
+For demo purposes only.

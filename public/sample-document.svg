@@ -1,0 +1,13 @@
+<svg width="900" height="1200" viewBox="0 0 900 1200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="1200" fill="#ffffff" />
+  <rect x="40" y="40" width="820" height="1120" rx="24" fill="#f3f4f6" />
+  <rect x="80" y="120" width="740" height="80" rx="12" fill="#e5e7eb" />
+  <rect x="80" y="240" width="520" height="24" rx="8" fill="#d1d5db" />
+  <rect x="80" y="300" width="600" height="24" rx="8" fill="#d1d5db" />
+  <rect x="80" y="360" width="460" height="24" rx="8" fill="#d1d5db" />
+  <rect x="80" y="460" width="700" height="24" rx="8" fill="#d1d5db" />
+  <rect x="80" y="520" width="640" height="24" rx="8" fill="#d1d5db" />
+  <rect x="80" y="580" width="520" height="24" rx="8" fill="#d1d5db" />
+  <text x="80" y="200" font-family="Arial, sans-serif" font-size="28" fill="#111827">Sample Document Preview</text>
+  <text x="80" y="680" font-family="Arial, sans-serif" font-size="18" fill="#6b7280">For demo purposes only</text>
+</svg>

@@ -1,0 +1,190 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-text-primary antialiased;
+    background: #f0f7fc;
+    font-family: var(--font-outfit), 'Outfit', sans-serif;
+    font-size: 16.5px;
+  }
+
+  /* Typography Hierarchy */
+  h1 {
+    @apply text-page-title text-text-primary;
+    font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
+  }
+
+  h2 {
+    @apply text-section-title text-text-primary;
+    font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
+  }
+
+  h3 {
+    @apply text-card-title text-text-primary;
+  }
+
+  h4 {
+    @apply text-body font-medium text-text-primary;
+  }
+
+  p {
+    @apply text-body text-text-secondary;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-text-secondary/30 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-text-secondary/50;
+  }
+}
+
+@layer components {
+  /* Card Component */
+  .card {
+    @apply bg-card rounded-xl shadow-sm border border-border p-6;
+    @apply transition-all duration-250 ease-out;
+  }
+
+  .card-hover {
+    @apply card cursor-pointer;
+    @apply hover:shadow-hover hover:-translate-y-1;
+  }
+
+  /* Button Components */
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium;
+    @apply transition-all duration-200 ease-out;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white;
+    @apply hover:bg-primary-dark hover:shadow-md;
+    @apply focus:ring-primary/50;
+    @apply active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply bg-card border border-border text-text-primary;
+    @apply hover:bg-background hover:border-primary/50;
+    @apply focus:ring-primary/30;
+  }
+
+  .btn-accent {
+    @apply bg-accent text-white;
+    @apply hover:bg-accent/90 hover:shadow-md;
+    @apply focus:ring-accent/50;
+  }
+
+  .btn-danger {
+    @apply bg-danger text-white;
+    @apply hover:bg-danger/90 hover:shadow-md;
+    @apply focus:ring-danger/50;
+  }
+
+  /* Input Components */
+  .input {
+    @apply w-full px-4 py-2.5 rounded-lg;
+    @apply bg-card border border-border text-text-primary;
+    @apply placeholder:text-text-secondary/50;
+    @apply focus:ring-2 focus:ring-primary/30 focus:border-primary;
+    @apply transition-all duration-200 outline-none;
+  }
+
+  .input-error {
+    @apply border-danger focus:ring-danger/30 focus:border-danger;
+  }
+
+  /* Badge Components */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-1 rounded-full;
+    @apply text-xs font-medium;
+  }
+
+  .badge-success {
+    @apply bg-white text-success border border-success/30;
+  }
+
+  .badge-warning {
+    @apply bg-white text-warning border border-warning/30;
+  }
+
+  .badge-danger {
+    @apply bg-white text-danger border border-danger/30;
+  }
+
+  .badge-info {
+    @apply bg-white text-info border border-info/30;
+  }
+
+  .badge-paid {
+    @apply bg-white text-info border border-info/30;
+  }
+
+  .badge-neutral {
+    @apply bg-white text-text-secondary border border-border;
+  }
+
+  /* Section Spacing */
+  .section-spacing {
+    @apply mb-8;
+  }
+
+  /* Page Container */
+  .page-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8;
+  }
+
+  /* Divider */
+  .divider {
+    @apply border-t border-border my-6;
+  }
+
+  /* Link Styles */
+  .link {
+    @apply text-primary hover:text-primary-dark;
+    @apply transition-colors duration-200;
+    @apply underline-offset-4 hover:underline;
+  }
+}
+
+@layer utilities {
+  /* Animation Utilities */
+  .animate-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .animate-in-delay {
+    animation: fadeIn 0.3s ease-out 0.1s both;
+  }
+
+  /* Glass Effect */
+  .glass {
+    @apply bg-white/80 backdrop-blur-sm;
+  }
+
+  /* Gradient Text */
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-accent;
+    @apply bg-clip-text text-transparent;
+  }
+}
