@@ -25,6 +25,7 @@ export default function LoginPage() {
   const login = useAuthStore((state) => state.login);
   
   const [showPassword, setShowPassword] = useState(false);
+  const [loginError, setLoginError] = useState("");
   const [otpSent, setOtpSent] = useState(false);
   const [otpValues, setOtpValues] = useState(["", "", "", "", "", ""]);
   const [otpTimer, setOtpTimer] = useState(0);
@@ -70,25 +71,42 @@ export default function LoginPage() {
     }
   };
 
-  const onSubmit = (data: LoginForm) => {
-    if (loginMode === "otp") {
-      if (otpSent && otpValues.join("") === "123456") {
-        login(data.identifier || "otp-user", "demo-password");
+  const onSubmit = async (data: LoginForm) => {
+    setLoginError("");
+
+    try {
+      if (loginMode === "otp") {
+        if (!otpSent || otpValues.join("") !== "123456") {
+          setLoginError("Invalid one-time code. Try 123456 in demo mode.");
+          return;
+        }
+
+        await login(data.identifier || "otp-user", "demo-password");
         router.push(ROUTES.DASHBOARD);
+        return;
       }
-      return;
-    }
 
-    if (loginMode === "corporate") {
-      if (!data.identifier) return;
-      login(data.identifier, "demo-password");
-      router.push(ROUTES.DASHBOARD);
-      return;
-    }
+      if (loginMode === "corporate") {
+        if (!data.identifier) {
+          setLoginError("Enter phone, email, or company ID.");
+          return;
+        }
 
-    if (data.identifier && data.password) {
-      login(data.identifier, data.password);
+        await login(data.identifier, "demo-password");
+        router.push(ROUTES.DASHBOARD);
+        return;
+      }
+
+      if (!data.identifier || !data.password) {
+        setLoginError("Enter both identifier and password.");
+        return;
+      }
+
+      await login(data.identifier, data.password);
       router.push(ROUTES.DASHBOARD);
+    } catch (error) {
+      console.error("Login submit failed:", error);
+      setLoginError("Sign in failed. In Vercel, set NEXT_PUBLIC_USE_MOCK=true unless your backend is live.");
     }
   };
 
@@ -276,6 +294,12 @@ export default function LoginPage() {
                 Forgot password?
               </button>
             </div>
+
+            {loginError && (
+              <p className="mb-4 rounded-lg border border-danger/25 bg-danger-light px-3 py-2 text-[13px] text-danger">
+                {loginError}
+              </p>
+            )}
 
             <button
               type="submit"

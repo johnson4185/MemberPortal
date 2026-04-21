@@ -28,7 +28,7 @@ export const apiConfig = {
    * Whether to use mock data instead of real API
    * Controlled by NEXT_PUBLIC_USE_MOCK environment variable
    */
-  useMock: process.env.NEXT_PUBLIC_USE_MOCK === "true",
+  useMock: process.env.NEXT_PUBLIC_USE_MOCK !== "false",
 
   /**
    * Request timeout in milliseconds
