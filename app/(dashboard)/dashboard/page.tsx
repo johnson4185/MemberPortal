@@ -36,7 +36,7 @@ const mockActivePolicy = {
   policyNumber: "POL-2026-123456",
   memberName: "Johnc Vargh",
   memberId: "MEM-2026-7890",
-  planType: "Gold Premium",
+  planName: "Gold Premium",
   premium: "$450/month",
   coverage: "Family",
   renewalDate: "Dec 31, 2026",
@@ -162,8 +162,8 @@ export default function DashboardPage() {
                   </div>
                   
                   <div>
-                    <p className="text-[12px] text-ocean-mid mb-0.5">Plan Type</p>
-                    <p className="text-[14px] sm:text-[15px] font-semibold text-ocean-dark">{mockActivePolicy.planType}</p>
+                    <p className="text-[12px] text-ocean-mid mb-0.5">Plan Name</p>
+                    <p className="text-[14px] sm:text-[15px] font-semibold text-ocean-dark">{mockActivePolicy.planName}</p>
                   </div>
                 </div>
                 

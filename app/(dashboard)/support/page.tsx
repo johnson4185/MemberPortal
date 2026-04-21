@@ -388,8 +388,10 @@ export default function SupportPage() {
       return;
     }
 
+    const ticketId = `ticket-${Date.now()}`;
+
     const newTicket: SupportTicket = {
-      id: `ticket-${Date.now()}`,
+      id: ticketId,
       ticketNumber: `TCK-${String(tickets.length + 1).padStart(5, '0')}`,
       subject: newTicketSubject,
       description: newTicketDescription,
@@ -401,6 +403,7 @@ export default function SupportPage() {
       messages: [
         {
           id: `msg-${Date.now()}`,
+          ticketId,
           senderName: "John Member",
           isStaff: false,
           message: newTicketDescription,
